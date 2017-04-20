@@ -6,9 +6,6 @@
 \usage{
 theme_GR()
 }
-\arguments{
-\item{theme}{Select one element from the following list}
-}
 \value{
 the ggplot2 function theme_manual(), with chosen changes
 }
@@ -16,7 +13,8 @@ the ggplot2 function theme_manual(), with chosen changes
 theme_GR
 }
 \examples{
-d <- ggplot2::qplot(carat, data = ggplot2::diamonds[ggplot2::diamonds$color \%in\%LETTERS[4:7], ], geom = "histogram", bins=30, fill = color)
+d <- ggplot2::qplot(carat, data = ggplot2::diamonds[ggplot2::diamonds$color \%in\%LETTERS[4:7], ],
+ geom = "histogram", bins=30, fill = color)
 d + theme_GR()
 
 }

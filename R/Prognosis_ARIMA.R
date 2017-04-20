@@ -18,7 +18,7 @@
 #' @examples
 #' exampledata <- GenerateSeriesToCutoff(100, .01, .005, 200, 100)
 #' Prognosis_output <- Prognosis_ARIMA(exampledata)
-#' plotly::ggplotly(Prognosis_output$Plot)
+#' Prognosis_output$Plot
 #' Prognosis_output$Model
 #' Prognosis_output$Table
 Prognosis_ARIMA <- function(data, maxp=5, maxq=5, maxd=2, tendtomean=FALSE, forecastLength=NULL, forecastConfidence=50, outlierTolerance=2, detailed=FALSE){

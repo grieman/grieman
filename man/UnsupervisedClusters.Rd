@@ -31,5 +31,6 @@ dataout <- UnsupervisedClusters(datain)
 
 dataout$index <- 1:length(dataout[,1])
 graphme <- reshape::melt(dataout, id=c("index", "cluster"))
-ggplot2::ggplot(graphme, ggplot2::aes(x=index, y=value, color=cluster)) + ggplot2::geom_point() + ggplot2::facet_wrap(~variable) + theme_GR()
+ggplot2::ggplot(graphme, ggplot2::aes(x=index, y=value, color=cluster)) +
+ ggplot2::geom_point() + ggplot2::facet_wrap(~variable) + theme_GR()
 }

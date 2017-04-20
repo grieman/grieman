@@ -1,12 +1,11 @@
 #' theme_GR
 #'
-#' @param theme Select one element from the following list
-#'
 #' @return the ggplot2 function theme_manual(), with chosen changes
 #' @export
 #'
 #' @examples
-#' d <- ggplot2::qplot(carat, data = ggplot2::diamonds[ggplot2::diamonds$color %in%LETTERS[4:7], ], geom = "histogram", bins=30, fill = color)
+#' d <- ggplot2::qplot(carat, data = ggplot2::diamonds[ggplot2::diamonds$color %in%LETTERS[4:7], ],
+#'  geom = "histogram", bins=30, fill = color)
 #' d + theme_GR()
 #'
 theme_GR <- function() {

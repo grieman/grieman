@@ -7,11 +7,11 @@
 FindOutliers(x, IQRs = 3, plot = FALSE)
 }
 \arguments{
+\item{x}{a numeric vector or time series to be processed}
+
 \item{IQRs}{Allowable number of IQRs' away from the first or third quartile for a point to not be considered an outlier. Higher numbers result in fewer outliers.}
 
 \item{plot}{Enables a plot highlighting detected outliers}
-
-\item{data}{a numeric vector or time series to be processed}
 }
 \value{
 A vector with likely weights of outliers.

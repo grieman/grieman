@@ -25,7 +25,8 @@
 #' @examples
 #' data(iris)
 #'   iris.pca <- prcomp(iris[-c(5)], scale. = TRUE)
-#'   print(ggbiplot(iris.pca, obs.scale = 1, var.scale = 1, groups = iris$Species, ellipse = TRUE, circle = TRUE))
+#'   print(ggbiplot(iris.pca, obs.scale = 1, var.scale = 1, groups = iris$Species,
+#'   ellipse = TRUE, circle = TRUE))
 #'
 ggbiplot <- function(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
                      obs.scale = 1 - scale, var.scale = scale,
@@ -34,7 +35,7 @@ ggbiplot <- function(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
                      var.axes = TRUE,
                      circle = FALSE, circle.prob = 0.69,
                      varname.size = 3, varname.adjust = 1.5,
-                     varname.abbrev = FALSE, ...)
+                     varname.abbrev = FALSE)
 {
   stopifnot(length(choices) == 2)
 

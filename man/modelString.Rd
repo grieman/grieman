@@ -19,3 +19,8 @@ a latex formatted string
 \description{
 Writes a model's equation in LaTeX
 }
+\examples{
+model <- lm(mpg~.,data=mtcars)
+modelString(model)
+
+}

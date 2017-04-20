@@ -19,7 +19,8 @@
 #'
 #' dataout$index <- 1:length(dataout[,1])
 #' graphme <- reshape::melt(dataout, id=c("index", "cluster"))
-#' ggplot2::ggplot(graphme, ggplot2::aes(x=index, y=value, color=cluster)) + ggplot2::geom_point() + ggplot2::facet_wrap(~variable) + theme_GR()
+#' ggplot2::ggplot(graphme, ggplot2::aes(x=index, y=value, color=cluster)) +
+#'  ggplot2::geom_point() + ggplot2::facet_wrap(~variable) + theme_GR()
 
 
 UnsupervisedClusters <- function(datain,  plottype = "fan", forceclusters = NULL, classification = NULL){
@@ -45,14 +46,14 @@ UnsupervisedClusters <- function(datain,  plottype = "fan", forceclusters = NULL
 
   res <- factoextra::hcut(datain, k = clustnums, stand = TRUE)
 
-  par(mfrow=c(1,1))
+  graphics::par(mfrow=c(1,1))
 
   #### PLOTS ####
   if (plottype == "dendogram"){
     factoextra::fviz_dend(res, rect = TRUE, cex = 0.5, k_colors = colors[1:clustnums])
   } else {
-    clus = cutree(res, clustnums)
-    plot(ape::as.phylo(res), type = plottype, tip.color = colors[clus],
+    clus = stats::cutree(res, clustnums)
+    graphics::plot(ape::as.phylo(res), type = plottype, tip.color = colors[clus],
          label.offset = .1, cex = 0.7)
   }
 

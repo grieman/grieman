@@ -10,13 +10,16 @@
 #' @export
 #'
 #' @examples
+#' model <- lm(mpg~.,data=mtcars)
+#' modelString(model)
+#'
 modelString <- function(model, round_to=2, dependent = "y"){
   if(names(model$coefficients)[1] == "(Intercept)"){intercept=T} else {intercept = F}
   numterms = length(names(model$coefficients))
 
   funcstring <- c()
   for (i in (1+as.numeric(intercept)):numterms){
-    str_i <- sprintf(" + %s %s", signif(model$coefficients[i], round_to), names(model$coefficients[i]))
+    str_i <- sprintf(" + %s \text{%s}", signif(model$coefficients[i], round_to), names(model$coefficients[i]))
     funcstring <- paste(funcstring, str_i, sep="")
   }
 

@@ -2,7 +2,7 @@
 #'
 #' This function identifies time series outliers in a data signal
 #'
-#' @param data a numeric vector or time series to be processed
+#' @param x a numeric vector or time series to be processed
 #' @param IQRs Allowable number of IQRs' away from the first or third quartile for a point to not be considered an outlier. Higher numbers result in fewer outliers.
 #' @param plot Enables a plot highlighting detected outliers
 #'

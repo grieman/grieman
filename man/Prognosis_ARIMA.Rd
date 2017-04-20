@@ -36,7 +36,7 @@ This function predicts future values using {\href{https://en.wikipedia.org/wiki/
 \examples{
 exampledata <- GenerateSeriesToCutoff(100, .01, .005, 200, 100)
 Prognosis_output <- Prognosis_ARIMA(exampledata)
-plotly::ggplotly(Prognosis_output$Plot)
+Prognosis_output$Plot
 Prognosis_output$Model
 Prognosis_output$Table
 }
