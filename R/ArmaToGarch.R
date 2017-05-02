@@ -18,15 +18,28 @@
 #' ArmaToGarch(arimamodel)
 #'
 ArmaToGarch <- function (arimamodel, max_arch_terms = 15) {
-  if (class(arimamodel)[1] != "Arima" && class(arimamodel)[1] != "ARIMA"){stop("Not a valid ARIMA model")}
+  if (class(arimamodel)[1] != "Arima" &&
+      class(arimamodel)[1] != "ARIMA") {
+    stop("Not a valid ARIMA model")
+  }
 
   if (stats::Box.test((arimamodel$residuals) ^ 2, lag = 12, type = "Ljung-Box")$p.value < .1) {
     arch_aics <- c()
     for (j in 1:max_arch_terms) {
-      arch_aics[j] <- suppressWarnings(stats::AIC(tseries::garch(arimamodel$residuals[!is.na(arimamodel$residuals)], order = c(1, j), trace = F)))
+      arch_aics[j] <-
+        suppressWarnings(stats::AIC(
+          tseries::garch(
+            arimamodel$residuals[!is.na(arimamodel$residuals)],
+            order = c(1, j),
+            trace = F
+          )
+        ))
     }
     best_arch <- which.min(arch_aics)
-    output <- tseries::garch(arimamodel$residuals[!is.na(arimamodel$residuals)], order = c(1, best_arch),trace = F) #fits best garch model
+    output <-
+      tseries::garch(arimamodel$residuals[!is.na(arimamodel$residuals)],
+                     order = c(1, best_arch),
+                     trace = F) #fits best garch model
   } else{
     output <- NA
     warning("No ARCH effect detected, therefore no GARCH model was fitted")

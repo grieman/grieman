@@ -15,18 +15,21 @@
 #' GenerateSeriesToCutoff(100, .01, .005, 200, 100)
 #' GenerateSeriesToCutoff(100, .1, .001, 100, 50)
 #'
-GenerateSeriesToCutoff <- function(N, mu, sigma,cutoff_point, starting_point){
-  p <- c(0)
-  while (max(p) < cutoff_point) {
-    p  <- c(starting_point, rep(NA, N - 1))
-    for (i in 2:N)
-      p[i] <- p[i - 1] * exp(stats::rnorm(1, mu, sigma))
-  } #Generates data that hits cutoff_point
-  p_last <- 0; last_point <- 0
-  while (p_last < cutoff_point) {
-    last_point = last_point + 1
-    p_last <- p[last_point]
-  } #Finds first point over cutoff_point
-  generated_data <- p[1:(last_point)] #cuts data after first point above cutoff_point
-  return(generated_data)
-}
+GenerateSeriesToCutoff <-
+  function(N, mu, sigma, cutoff_point, starting_point) {
+    p <- c(0)
+    while (max(p) < cutoff_point) {
+      p  <- c(starting_point, rep(NA, N - 1))
+      for (i in 2:N)
+        p[i] <- p[i - 1] * exp(stats::rnorm(1, mu, sigma))
+    } #Generates data that hits cutoff_point
+    p_last <- 0
+    last_point <- 0
+    while (p_last < cutoff_point) {
+      last_point = last_point + 1
+      p_last <- p[last_point]
+    } #Finds first point over cutoff_point
+    generated_data <-
+      p[1:(last_point)] #cuts data after first point above cutoff_point
+    return(generated_data)
+  }

@@ -9,9 +9,13 @@
 #' d + theme_GR()
 #'
 theme_GR <- function() {
-  ggplot2::theme(axis.line = ggplot2::element_line(linetype = "solid"),
-                                   panel.grid.major = ggplot2::element_line(colour = "gray80"),
-                                   panel.grid.minor = ggplot2::element_line(colour = "gray90",
-                                   linetype = "dashed"), panel.background = ggplot2::element_rect(fill = NA),
-                                   legend.direction = 'horizontal', legend.position = 'bottom')
+  ggplot2::theme(
+    axis.line = ggplot2::element_line(linetype = "solid"),
+    panel.grid.major = ggplot2::element_line(colour = "gray80"),
+    panel.grid.minor = ggplot2::element_line(colour = "gray90",
+                                             linetype = "dashed"),
+    panel.background = ggplot2::element_rect(fill = NA),
+    legend.direction = 'horizontal',
+    legend.position = 'bottom'
+  )
 }

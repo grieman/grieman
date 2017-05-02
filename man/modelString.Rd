@@ -2,7 +2,7 @@
 % Please edit documentation in R/modelString.R
 \name{modelString}
 \alias{modelString}
-\title{modelString}
+\title{Models to LaTeX Formula}
 \usage{
 modelString(model, round_to = 2, dependent = "y")
 }
@@ -14,13 +14,17 @@ modelString(model, round_to = 2, dependent = "y")
 \item{dependent}{string: the dependent variable. Defaults to y}
 }
 \value{
-a latex formatted string
+A LaTeX formatted string
 }
 \description{
-Writes a model's equation in LaTeX
+Writes a model's equation in LaTeX. Supported classes are lm, arima, and garch
 }
 \examples{
-model <- lm(mpg~.,data=mtcars)
-modelString(model)
+fit <- lm(mpg ~ hp + wt, data = mtcars)
+modelString(fit, dependent = "mpg")
+
+series <- c(1, 3, 2, 3, 4, 3, 4, 5, 6, 4, 5, 6, 5, 4, 7, 5, 4, 7, 8, 5, 7, 8, 9, 7, 9)
+arimamodel <- forecast::auto.arima(series)
+modelString(arimamodel)
 
 }

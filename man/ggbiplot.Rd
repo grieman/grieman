@@ -51,7 +51,7 @@ ggbiplot(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
 A plot
 }
 \description{
-ggbiplot
+Taken from https://github.com/vqv/ggbiplot/blob/experimental/R/ggbiplot.r and edited slightly
 }
 \examples{
 data(iris)

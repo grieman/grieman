@@ -1,5 +1,7 @@
 #' ggbiplot
 #'
+#' Taken from https://github.com/vqv/ggbiplot/blob/experimental/R/ggbiplot.r and edited slightly
+#'
 #' @param pcobj an object returned by prcomp() or princomp()
 #' @param choices which PCs to plot
 #' @param scale covariance biplot (scale = 1), form biplot (scale = 0). When scale = 1, the inner product between the variables approximates the covariance and the distance between the points approximates the Mahalanobis distance.

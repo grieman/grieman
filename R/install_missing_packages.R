@@ -6,8 +6,10 @@
 #'
 #' @export
 #'
-installnload_packages <- function(packages){
-  packages.new <- packages[!(packages %in% utils::installed.packages()[,"Package"])]
-  if(length(packages.new)) utils::install.packages(packages.new)
-  for (i in 1:length(packages)) library(packages[i], character.only = T)
+install_missing_packages <- function(packages) {
+  packages.new <-
+    packages[!(packages %in% utils::installed.packages()[, "Package"])]
+  if (length(packages.new)) {
+    utils::install.packages(packages.new)
+  }
 }

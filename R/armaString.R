@@ -14,21 +14,31 @@
 #' armaString(arimamodel)
 #'
 armaString <- function(model, round_to = 2) {
-  arimap <- model$arma[1]; arimad <- model$arma[6]; arimaq <- model$arma[2]
+  arimap <-
+    model$arma[1]
+  arimad <- model$arma[6]
+  arimaq <- model$arma[2]
 
-  str_p <- c(); str_q <- c(); p_string <- ""; q_string <- ""
-  if(arimap > 0){
-    for(i in 1:arimap){
-      str_p[i] <- sprintf("+ %s y_{t-%s} ", signif(model$coef[i],round_to),(i))
-      p_string = paste(p_string,str_p[i], sep="")
+  str_p <- c()
+  str_q <- c()
+  p_string <- ""
+  q_string <- ""
+  if (arimap > 0) {
+    for (i in 1:arimap) {
+      str_p[i] <-
+        sprintf("+ %s y_{t-%s} ", signif(model$coef[i], round_to), (i))
+      p_string = paste(p_string, str_p[i], sep = "")
     }
   }
-  if(arimaq > 0){
-    for(i in 1:arimaq){
-      str_q[i] <- sprintf("+ %s \\varepsilon_{t-%s}", signif(model$coef[i+arimap],round_to),(i))
-      q_string = paste(q_string, str_q[i], sep="")
+  if (arimaq > 0) {
+    for (i in 1:arimaq) {
+      str_q[i] <-
+        sprintf("+ %s \\varepsilon_{t-%s}",
+                signif(model$coef[i + arimap], round_to),
+                (i))
+      q_string = paste(q_string, str_q[i], sep = "")
     }
   }
-  arma_string = paste(p_string, q_string, sep="")
-  sprintf("$$p_t = \\varepsilon_t%s$$",arma_string)
+  arma_string = paste(p_string, q_string, sep = "")
+  sprintf("$$p_t = \\varepsilon_t%s$$", arma_string)
 }

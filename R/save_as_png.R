@@ -9,8 +9,13 @@
 #' @return generates an image file at the designated path
 #' @export
 #'
-save_as_png <- function(plotme, file, width=512, height=512, axes=T){
-  grDevices::png(file, width, height)
-  graphics::plot(plotme, axes=axes)
-  grDevices::dev.off()
-}
+save_as_png <-
+  function(plotme,
+           file,
+           width = 512,
+           height = 512,
+           axes = T) {
+    grDevices::png(file, width, height)
+    graphics::plot(plotme, axes = axes)
+    grDevices::dev.off()
+  }

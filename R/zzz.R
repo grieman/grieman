@@ -1,0 +1,12 @@
+globalVariables(c(
+  "times",
+  "value",
+  "varname",
+  "xvar",
+  "yvar",
+  "angle",
+  "hjust",
+  "time",
+  "varchange",
+  "meanchange"
+))
