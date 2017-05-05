@@ -31,6 +31,10 @@ Prognosis_ARIMA <-
            forecastConfidence = 50,
            outlierTolerance = 2,
            detailed = FALSE) {
+    if (class(data)[1] %nin% c("numeric", "ts")){
+      stop("Invalid data format. Must be a vector")
+    }
+
     if (is.null(forecastLength)) {
       forecastLength <- floor(length(data) * .05)
     }
