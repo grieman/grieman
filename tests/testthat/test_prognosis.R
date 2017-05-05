@@ -23,7 +23,7 @@ test_that("garch models are generated and written",{
 test_that("seasonal works",{
   exampledata <- GenerateSeriesToCutoff(100, .01, .005, 200, 100)
   times <- seq(as.Date("2000/1/1"), by = "month", length.out = length(exampledata))
-  Prognosis_output<- Prognosis_Seasonal(exampledata, times, 12)
+  Prognosis_output<- Prognosis_Seasonal(exampledata, times, 12, detailed = TRUE)
 
   expect_equal(class(Prognosis_output$Model), "stlm")
 })

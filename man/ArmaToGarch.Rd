@@ -22,7 +22,7 @@ series1 <- c(1, 3, 2, 3, 4, 3, 4, 5, 6, 4, 5, 6, 5, 4, 7, 5, 4, 7, 8, 5, 7, 8, 9
 arimamodel <- forecast::auto.arima(series1)
 ArmaToGarch(arimamodel)
 
-series2 <- c(1, 3, 4, 1, 4, 1, 2, 5, 1, 4, 5, 6, 1, 4, 7, 5, 1, 7, 8, 5, 1, 8, 9, 7, 1)
+series2 <- c(1, 3, 4, 1, 4, 1, 2, 5, 1, 4, 5, 8, 1, 4, 7, 5, 1, 7, 8, 5, 1, 8, 9, 7, 1)
 arimamodel <- forecast::auto.arima(series2)
 ArmaToGarch(arimamodel)
 

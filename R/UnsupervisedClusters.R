@@ -70,13 +70,13 @@ UnsupervisedClusters <-
 
     #### PLOTS ####
     if (plottype == "dendogram") {
-      factoextra::fviz_dend(res,
+      print(factoextra::fviz_dend(res,
                             rect = TRUE,
                             cex = 0.5,
-                            k_colors = colors[1:clustnums])
+                            k_colors = colors[1:clustnums]))
     } else {
       clus = stats::cutree(res, clustnums)
-      graphics::plot(
+      plot <- graphics::plot(
         ape::as.phylo(res),
         type = plottype,
         tip.color = colors[clus],
@@ -90,10 +90,10 @@ UnsupervisedClusters <-
       if (length(classification) != length(datain[, 1])) {
         stop("classification vector must be the same length as the observations")
       }
-      tabl <- table(observed = res$cluster, expected = classification)
-      print(tabl)
+      printClassificationTable(res$cluster, classification, method  = "unsupervised clustering")
     }
 
     datain$cluster <- as.factor(res$cluster)
+
     return(datain)
   }
