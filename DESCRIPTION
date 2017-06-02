@@ -1,6 +1,6 @@
 Package: grieman
 Title: What the Package Does (one line, title case)
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
 Description: A collection of functions that I use.
 Depends: R (>= 3.3.2)
@@ -12,6 +12,7 @@ Suggests:
   testthat
 Imports:
   ape,
+  bayesplot,
   changepoint,
   factoextra,
   forecast,
@@ -23,7 +24,9 @@ Imports:
   plotly,
   plyr,
   reshape,
+  rstanarm,
   scales,
+  shinystan,
   tseries,
   xts,
   zoo

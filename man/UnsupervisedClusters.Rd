@@ -28,9 +28,8 @@ set.seed(1)
 datain <- data.frame(matrix(rnorm(400), nrow=100))
 
 dataout <- UnsupervisedClusters(datain)
-dataout$Plot
 
-dataout$index <- 1:length(dataout$Data[,1])
+dataout$index <- 1:length(dataout[,1])
 graphme <- reshape::melt(dataout, id=c("index", "cluster"))
 ggplot2::ggplot(graphme, ggplot2::aes(x=index, y=value, color=cluster)) +
  ggplot2::geom_point() + ggplot2::facet_wrap(~variable) + theme_GR()
