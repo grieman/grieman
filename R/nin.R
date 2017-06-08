@@ -1,1 +1,2 @@
-'%nin%' <- Negate('%in%')
+notin <- function(){Negate(`%in%`)}
+`%nin%` <- notin()

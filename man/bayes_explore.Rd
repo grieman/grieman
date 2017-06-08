@@ -4,27 +4,40 @@
 \alias{bayes_explore}
 \title{bayes_explore}
 \usage{
-bayes_explore(model, shiny = F, show_intercept = T)
+bayes_explore(model, show_intercept = T, extra_plots = F, chains = 4,
+  chain_length = 1000)
 }
 \arguments{
 \item{model}{a model, in lm or glm format}
 
-\item{shiny}{boolean, True opens shinystan interface while False outputs a handful of plots}
-
 \item{show_intercept}{boolean. Toggles if the intercept is included in plots}
+
+\item{extra_plots}{boolean. Toggles trace and hex plots, if applicable (hex plot needs only two parameters)}
+
+\item{chains}{number of markov chains to calculate. Lower numbers trade accuracy for speed}
+
+\item{chain_length}{length of calculated markov chains. Lower numbers trade accuracy for speed}
 }
 \value{
-a model and either a shiny interface, or handful of plots
+a model and a series of plots
+\describe{
+ \item{Estimated Population Curve}{This plot shows the estimated values of the dependent (y) variable in the population at large}
+ \item{Posterior Distributions}{This shows confidence intervals for each of the model's coefficients.
+ These distributions can be used to make proper bayesian predictions - e.g. we are 80\% confident that the true value of \eqn{\beta_i} is in this interval - as opposed to frequentist ones which use the calculated value and uncertainty to a null hypothesis' probabilty of error.}
+}
 }
 \description{
-This function uses stan to allow the user to make a bayesian model from a frequentist one, allowing for easy bayesian conclusions (intervals, estimates, etc.)
-There is an option to open a shiny-based analysis portal, or to output some plots with posterior distributions and population estimates.
-The model itself is also output.
+This function uses stan to allow the user to make a bayesian model from a frequentist one, allowing for easy bayesian conclusions (intervals, estimates, etc.).
+It will return the bayesian model, and output a couple plots - an estimate of the population's y-value distribution, and confidence intervals for the model parameters.
+Be aware of shinystan::launch_shinystan for a more interactive environment - use bayes_explore \%>\% shinystan::launch_shinystan
 }
 \examples{
 bayes_explore(lm(mpg~., mtcars))
 bayes_explore(lm(stack.loss~., stackloss), show_intercept=FALSE)
 bayes_explore(lm(Fertility~0+., swiss))
-bayes_explore(glm(am~0+mpg+wt, mtcars, family=binomial(link='logit')))
+bayes_explore(glm(am~0+mpg+wt, mtcars, family=binomial(link='logit')), extra_plots=TRUE)
 
+}
+\author{
+Graeham Rieman, \email{graeham.rieman@gmail.com}
 }
