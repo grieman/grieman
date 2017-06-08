@@ -17,8 +17,6 @@
 #'  These distributions can be used to make proper bayesian predictions - e.g. we are 80\% confident that the true value of \eqn{\beta_i} is in this interval - as opposed to frequentist ones which use the calculated value and uncertainty to a null hypothesis' probabilty of error.}
 #' }
 #'
-#' @author Graeham Rieman, \email{graeham.rieman@gmail.com}
-#'
 #' @examples
 #' bayes_explore(lm(mpg~., mtcars))
 #' bayes_explore(lm(stack.loss~., stackloss), show_intercept=FALSE)
