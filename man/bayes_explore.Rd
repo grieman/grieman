@@ -38,6 +38,3 @@ bayes_explore(lm(Fertility~0+., swiss))
 bayes_explore(glm(am~0+mpg+wt, mtcars, family=binomial(link='logit')), extra_plots=TRUE)
 
 }
-\author{
-Graeham Rieman, \email{graeham.rieman@gmail.com}
-}
